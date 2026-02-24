@@ -1,39 +1,44 @@
-🧪 Escuela Testing Final – Pruebas con Karate
-📌 Descripción del Proyecto
+# 🧪 Escuela Testing Final – Pruebas con Karate
 
-Este proyecto contiene pruebas API utilizando Karate Framework sobre los módulos:
+---
 
-store
+## 📌 Descripción del Proyecto
 
-user
+Este proyecto contiene pruebas API automatizadas utilizando **Karate Framework** sobre los siguientes módulos:
 
-Se implementaron escenarios Happy Path y Unhappy Path, realizando validaciones sobre códigos de estado HTTP, estructura y contenido de las respuestas.
+- 📦 **Store**
+- 👤 **User**
 
-El proyecto cumple con los siguientes requerimientos:
+Se implementaron escenarios **Happy Path** y **Unhappy Path**, realizando validaciones sobre:
 
-No exposición de datos sensibles.
+- Códigos de estado HTTP
+- Estructura de la respuesta
+- Contenido de la respuesta
 
-Configuración centralizada mediante karate-config.js.
+---
 
-Uso correcto de tags para segmentación de pruebas.
+## ✅ Requerimientos Cumplidos
 
-Estructura organizada bajo estándar Maven.
+- ✔ No exposición de datos sensibles  
+- ✔ Configuración centralizada mediante `karate-config.js`  
+- ✔ Uso correcto de tags para segmentación de pruebas  
+- ✔ Estructura organizada bajo estándar Maven  
+- ✔ Archivo `.gitignore` configurado  
+- ✔ Repositorio estructurado correctamente  
 
-Archivo .gitignore configurado.
+---
 
-Repositorio estructurado correctamente.
+## 🛠 Tecnologías Utilizadas
 
-🛠️ Tecnologías utilizadas
+- Java 17+
+- Maven
+- Karate Framework
+- JUnit 5
 
-Java 17+
+---
 
-Maven
+## 📂 Estructura del Proyecto
 
-Karate Framework
-
-JUnit 5
-
-📂 Estructura del Proyecto
 src
 └── test
 ├── java
