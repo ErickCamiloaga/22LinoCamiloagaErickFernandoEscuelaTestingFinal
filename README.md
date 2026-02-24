@@ -33,7 +33,7 @@ Se implementaron escenarios **Happy Path** y **Unhappy Path**, realizando valida
 ## 📂 Estructura del Proyecto
 
     src/test
-        java/KarateRunner.java
+        java/runner.KarateRunner.java
         resources/store.feature
                   user.feature
      
@@ -81,7 +81,7 @@ Para ejecutar solo user debemos usar
 ### Cómo ejecutar el proyecto
 
 Desde la raíz del proyecto:
-- `mvn clean test` o ejecutar directamente desde *KarateRunner*.
+- `mvn clean test` o ejecutar directamente desde *runner.KarateRunner*.
 
 ---
 ## 📌 Consideraciones

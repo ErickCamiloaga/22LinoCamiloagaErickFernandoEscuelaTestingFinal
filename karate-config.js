@@ -1,6 +1,5 @@
 function fn() {
-    var config = {
+    return {
         baseUrl: 'https://petstore.swagger.io/v2'
     };
-    return config;
 }
