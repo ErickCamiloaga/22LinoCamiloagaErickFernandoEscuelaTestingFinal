@@ -1,4 +1,4 @@
-# 🧪 Escuela Testing Final – Pruebas con Karate
+# Escuela Testing Final – Pruebas con Karate
 
 ---
 
@@ -19,12 +19,12 @@ Se implementaron escenarios **Happy Path** y **Unhappy Path**, realizando valida
 
 ## ✅ Requerimientos Cumplidos
 
-- ✔ No exposición de datos sensibles  
-- ✔ Configuración centralizada mediante `karate-config.js`  
-- ✔ Uso correcto de tags para segmentación de pruebas  
-- ✔ Estructura organizada bajo estándar Maven  
-- ✔ Archivo `.gitignore` configurado  
-- ✔ Repositorio estructurado correctamente  
+-  No exposición de datos sensibles  
+-  Configuración centralizada mediante `karate-config.js`  
+-  Uso correcto de tags para segmentación de pruebas  
+-  Estructura organizada bajo estándar Maven  
+-  Archivo `.gitignore` configurado  
+-  Repositorio estructurado correctamente  
 
 ---
 
