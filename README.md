@@ -33,7 +33,6 @@ Se utilizó un **Background** para centralizar la configuración base y el objet
 - JUnit 5
 
 ---
-
 ## 📂 Estructura del Proyecto
 
     src/test/java/runner/KarateRunner.java
@@ -43,8 +42,8 @@ Se utilizó un **Background** para centralizar la configuración base y el objet
     karate-config.js
     pom.xml
     README.md
----
 
+---
 ## ⚙️ Configuración
 El archivo *karate-config.js* centraliza la configuración base del entorno:
 - URL base de la API
@@ -62,7 +61,7 @@ En el **Background** se define:
 - Generación dinámica de `invalidOrderId`
 Esto permite que cada ejecución sea reproducible y sin dependencia de datos preexistentes.
 
-### ✅ Escenarios Happy Path
+#### ✅ Escenarios Happy Path
 
 Se validaron los siguientes casos funcionales:
 
@@ -81,7 +80,7 @@ En estos escenarios se valida:
 
 El escenario de flujo completo permite validar el comportamiento integral del recurso durante todo su ciclo de vida.
 
-### ❌ Escenarios Unhappy Path
+#### ❌ Escenarios Unhappy Path
 
 Se probaron distintos escenarios negativos para evaluar la robustez del sistema:
 
@@ -93,7 +92,7 @@ En el flujo negativo se identificó que la API devuelve **500 Internal Server Er
 
 Luego se verifica si la orden fue realmente creada, evaluando distintos posibles códigos de respuesta (400, 404 o 500), con el objetivo de analizar el comportamiento del sistema ante errores.
 
-### 🔎 Observaciones Técnicas
+#### 🔎 Observaciones 
 
 Durante la ejecución se detectaron comportamientos relevantes:
 
@@ -109,7 +108,7 @@ Estos hallazgos evidencian la importancia de incluir pruebas negativas para iden
 
 ## 👤 Módulo User
 
-### ✅ Happy Path
+#### ✅ Happy Path
 
 Se implementaron pruebas para:
 
@@ -125,7 +124,7 @@ Se validó:
 - Coincidencia de datos enviados y recibidos
 - Flujo completo de gestión de usuario
 
-### ❌ Unhappy Path
+#### ❌ Unhappy Path
 
 Se evaluaron distintos casos negativos:
 
@@ -138,7 +137,7 @@ Se evaluaron distintos casos negativos:
 - Crear usuario con tipo de dato incorrecto
 - Crear usuario con username excesivamente largo
 
-### Observaciones
+#### 🔎 Observaciones
 
 En algunos escenarios negativos se identificaron respuestas inconsistentes:
 
@@ -149,7 +148,6 @@ En algunos escenarios negativos se identificaron respuestas inconsistentes:
 Esto demuestra la importancia de las pruebas negativas para detectar debilidades en el sistema.
 
 ---
-
 ## 🏷️ Tags Implementados
 - @store
 - @user
@@ -158,6 +156,7 @@ Esto demuestra la importancia de las pruebas negativas para detectar debilidades
 
 *Permiten ejecutar pruebas específicas*.
 
+---
 ## ▶️ Cómo ejecutar el proyecto
 
 Ejecutar todas las pruebas: `mvn clean test`
@@ -169,6 +168,7 @@ Ejecutar solo Unhappy Path: `mvn test -Dkarate.options="--tags @unhappyPath"`
 Ejecutar por módulo:
 
 `mvn test -Dkarate.options="--tags @store"`
+
 `mvn test -Dkarate.options="--tags @user"`
 
 ---
