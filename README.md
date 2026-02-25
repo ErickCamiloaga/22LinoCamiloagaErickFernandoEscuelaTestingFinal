@@ -193,4 +193,5 @@ Además de verificar funcionalidad, se identificaron oportunidades de mejora rel
 ---
 ### 👨‍💻 Autor
 Erick Fernado Lino Camiloaga
+
 Escuela de Testing – Proyecto Final con Karate Framework
