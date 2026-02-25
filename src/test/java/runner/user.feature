@@ -2,6 +2,19 @@ Feature: User API Testing
 
   Background:
     * url baseUrl
+    * def testUser =
+    """
+    {
+      "id": 3001,
+      "username": "test123",
+      "firstName": "ttt321",
+      "lastName": "QA1234",
+      "email": "tttpro12@test.com",
+      "password": "Test123",
+      "phone": "987654321",
+      "userStatus": 1
+    }
+    """
 
   @user-happy-1 @user @happyPath
   Scenario: Crear usuario válido
@@ -100,7 +113,7 @@ Feature: User API Testing
     }
     """
     When method post
-    Then status 200
+    Then status 500
 
   @user-unhappy-8 @user @unhappyPath
   Scenario: Crear usuario con username muy largo

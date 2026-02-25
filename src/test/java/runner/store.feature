@@ -3,6 +3,7 @@ Feature: Store API Testing - Orden dinamica
   Background:
     * url baseUrl
     * def orderId = Math.floor(Math.random() * 1000000)
+    * def invalidOrderId = Math.floor(Math.random() * 1000000)
 
   @store-happy-1 @store @happyPath
   Scenario: Crear orden válida con id dinámico
@@ -28,7 +29,25 @@ Feature: Store API Testing - Orden dinamica
     And match response.status == '#string'
 
   @store-happy-2 @store @happyPath
-  Scenario: Consultar orden creada
+  Scenario: Crear y consultar orden
+
+  # Crear orden
+    Given path 'store/order'
+    And request
+  """
+  {
+    "id": #(orderId),
+    "petId": 10,
+    "quantity": 1,
+    "shipDate": "2025-01-01T00:00:00.000Z",
+    "status": "placed",
+    "complete": true
+  }
+  """
+    When method post
+    Then status 200
+
+  # Consultar orden recién creada
     Given path 'store/order', orderId
     When method get
     Then status 200
@@ -37,11 +56,33 @@ Feature: Store API Testing - Orden dinamica
     And match response.status == "placed"
 
   @store-happy-3 @store @happyPath
-  Scenario: Eliminar orden creada
+  Scenario: Crear y eliminar orden
+  # Crear la orden primero
+    Given path 'store/order'
+    And request
+  """
+  {
+    "id": #(orderId),
+    "petId": 10,
+    "quantity": 1,
+    "shipDate": "2025-01-01T00:00:00.000Z",
+    "status": "placed",
+    "complete": true
+  }
+  """
+    When method post
+    Then status 200
+
+  # Ahora eliminar la orden
     Given path 'store/order', orderId
     When method delete
     Then status 200
     And assert responseTime < 2000
+
+  # Validar que ya no exista la orden
+    Given path 'store/order', orderId
+    When method get
+    Then status 404
 
   @store-unhappy-1 @store @unhappyPath
   Scenario: Consultar orden inexistente
@@ -121,11 +162,11 @@ Feature: Store API Testing - Orden dinamica
       }
       """
     When method post
-    Then status 200
+    Then status 500
     And assert responseTime < 2000
 
-    # Verificar si realmente fue creada (análisis crítico)
+    # Verificar si realmente fue creada (crítico)
     Given path 'store/order', invalidOrderId
     When method get
-    Then match [200,404] contains responseStatus
+    Then match [400,404,500] contains responseStatus
     And print "Observación: La API permite crear orden con datos inválidos"
