@@ -52,7 +52,7 @@ El archivo *karate-config.js* centraliza la configuración base del entorno:
 - Configuración reutilizable
 
 ---
-### 📦 Módulo Store
+## 📦 Módulo Store
 
 El módulo Store automatiza pruebas sobre el endpoint `/store/order` de la API Swagger Petstore, validando el ciclo de vida completo de una orden y el comportamiento del sistema ante datos inválidos.
 Se implementó generación dinámica de identificadores (`orderId`) para evitar conflictos entre ejecuciones y garantizar independencia de escenarios.
@@ -62,7 +62,7 @@ En el **Background** se define:
 - Generación dinámica de `invalidOrderId`
 Esto permite que cada ejecución sea reproducible y sin dependencia de datos preexistentes.
 
-## ✅ Escenarios Happy Path
+### ✅ Escenarios Happy Path
 
 Se validaron los siguientes casos funcionales:
 
@@ -81,9 +81,7 @@ En estos escenarios se valida:
 
 El escenario de flujo completo permite validar el comportamiento integral del recurso durante todo su ciclo de vida.
 
----
-
-## ❌ Escenarios Unhappy Path
+### ❌ Escenarios Unhappy Path
 
 Se probaron distintos escenarios negativos para evaluar la robustez del sistema:
 
@@ -95,9 +93,7 @@ En el flujo negativo se identificó que la API devuelve **500 Internal Server Er
 
 Luego se verifica si la orden fue realmente creada, evaluando distintos posibles códigos de respuesta (400, 404 o 500), con el objetivo de analizar el comportamiento del sistema ante errores.
 
----
-
-## 🔎 Observaciones Técnicas
+### 🔎 Observaciones Técnicas
 
 Durante la ejecución se detectaron comportamientos relevantes:
 
@@ -111,9 +107,9 @@ Estos hallazgos evidencian la importancia de incluir pruebas negativas para iden
 
 ---
 
-### 👤 Módulo User
+## 👤 Módulo User
 
-## ✅ Happy Path
+### ✅ Happy Path
 
 Se implementaron pruebas para:
 
@@ -129,9 +125,7 @@ Se validó:
 - Coincidencia de datos enviados y recibidos
 - Flujo completo de gestión de usuario
 
----
-
-## ❌ Unhappy Path
+### ❌ Unhappy Path
 
 Se evaluaron distintos casos negativos:
 
@@ -163,17 +157,8 @@ Esto demuestra la importancia de las pruebas negativas para detectar debilidades
 - @unhappyPath
 
 *Permiten ejecutar pruebas específicas*.
-Ejemplo:
 
-Para ejecutar solo happy path debemos usar
-`mvn test -Dkarate.options="--tags @happyPath"`
-
-Para ejecutar solo user debemos usar
-`mvn test -Dkarate.options="--tags @user"`
-
-### Cómo ejecutar el proyecto
-
-## ▶️ Ejecución del Proyecto
+## ▶️ Cómo ejecutar el proyecto
 
 Ejecutar todas las pruebas: `mvn clean test`
 
@@ -182,6 +167,7 @@ Ejecutar solo Happy Path: `mvn test -Dkarate.options="--tags @happyPath"`
 Ejecutar solo Unhappy Path: `mvn test -Dkarate.options="--tags @unhappyPath"`
 
 Ejecutar por módulo:
+
 `mvn test -Dkarate.options="--tags @store"`
 `mvn test -Dkarate.options="--tags @user"`
 
@@ -191,7 +177,7 @@ El proyecto demuestra la implementación de pruebas automatizadas aplicando buen
 Además de verificar funcionalidad, se identificaron oportunidades de mejora relacionadas con validación de datos y manejo de errores, resaltando la importancia del testing automatizado como herramienta clave en el aseguramiento de calidad.
 
 ---
-### 👨‍💻 Autor
-Erick Fernado Lino Camiloaga
+#### 👨‍💻 Autor
+**Erick Fernando Lino Camiloaga**
 
-Escuela de Testing – Proyecto Final con Karate Framework
+*Escuela de Testing – Proyecto Final con Karate Framework*
